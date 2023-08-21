@@ -7,7 +7,7 @@
 
 int main(){
   
-  char serverMessage[256] = "You have a missed call from server\n";
+  char serverMessage[256] = "You are now connected to the server throuch TCP/IP \n";
 
    int socketDescriptor = socket(AF_INET,SOCK_STREAM,0);
   
@@ -17,6 +17,7 @@ int main(){
   serverAddress.sin_addr.s_addr = INADDR_ANY;
 
   bind(socketDescriptor,(struct sockaddr*) &serverAddress,sizeof(serverAddress));
+  printf("Server is running...");
 
   listen(socketDescriptor,5);
 
