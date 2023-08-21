@@ -7,10 +7,10 @@
 #include "netdb.h"
 #include "arpa/inet.h"
 
-#define h_addr h_addr_list[0] /* for backward compatibility */
+#define h_addr h_addr_list[0] 
 
-#define PORT 9002 // port number
-#define MAX 1000  //maximum buffer size
+#define PORT 9002 
+#define MAX 1000  
 
 int main(){
     char serverResponse[MAX];
@@ -19,9 +19,9 @@ int main(){
     int socketDescriptor = socket(AF_INET, SOCK_STREAM, 0);
 
     char hostname[MAX], ipaddress[MAX];
-struct hostent *hostIP; //placeholder for the ip address
+struct hostent *hostIP; 
 if(gethostname(hostname,sizeof(hostname))==0){
-    hostIP = gethostbyname(hostname);//the netdb.h fucntion gethostbyname
+    hostIP = gethostbyname(hostname);
 }else{
 printf("ERROR:FCC4539 IP Address Not ");
 }
@@ -38,9 +38,8 @@ connect(socketDescriptor, (struct sockaddr *)&serverAddress, sizeof(serverAddres
     printf("Remote Host: %s\n", inet_ntoa(serverAddress.sin_addr));
 
     while (1)
-    {   //recieve the data from the server
+    {   
         recv(socketDescriptor, serverResponse, sizeof(serverResponse), 0);
-            //recieved data from the server successfully then printing the data obtained from the server
             printf("\nSERVER : %s", serverResponse);
         
     printf("\ntext message here... :");
